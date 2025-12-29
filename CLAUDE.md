@@ -214,6 +214,8 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 - Git repository, Markdown files, Docusaurus static site (002-physical-ai-book)
 - TypeScript/JavaScript for React components, SCSS/CSS Modules for styling + Docusaurus framework, React, CSS Modules, TypeScript (001-docusaurus-homepage)
 - N/A (static content only) (001-docusaurus-homepage)
+- TypeScript/JavaScript (React-based for Docusaurus) + React, Docusaurus, CSS Modules/Sass for styling (001-chatbot-ui)
+- Browser LocalStorage for chat history persistence (001-chatbot-ui)
 
 ## Recent Changes
 - 002-physical-ai-book: Added Markdown, Docusaurus documentation framework + Docusaurus, Claude Code, Spec-Kit Plus, ROS 2 documentation, Gazebo documentation, Unity documentation

@@ -1,28 +1,26 @@
 {
-  "name": "humanoid-ai",
+  "name": "humanoid-ai-monorepo",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Monorepo for humanoid AI project with frontend and backend",
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run start",
+    "dev:backend": "cd backend && uv run main.py",
+    "build": "cd frontend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "echo \"No build step for backend\"",
+    "start": "cd frontend && npm run serve",
+    "install": "cd frontend && npm install",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && uv sync"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/preset-classic": "^3.9.2",
-    "@docusaurus/tsconfig": "^3.9.2"
+    "concurrently": "^8.2.0"
   },
   "dependencies": {
-    "lucide-react": "^0.561.0"
+    "@types/uuid": "^10.0.0",
+    "uuid": "^13.0.0"
   }
 }

@@ -60,13 +60,16 @@ export const sendChatMessage = async (
   message: string,
 ): Promise<ChatAPIResponse> => {
   try {
-    const response = await fetch(CHATBOT_CONFIG.API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://abeershaikh-book-chatbot.hf.space/agent/chat/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
       },
-      body: JSON.stringify({ message }),
-    });
+    );
 
     if (!response.ok) {
       console.log("❌ RESPONSE NOT OK:", response.status);

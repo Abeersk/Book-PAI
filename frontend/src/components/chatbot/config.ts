@@ -3,7 +3,8 @@
 
 export const CHATBOT_CONFIG = {
   API_BASE_URL: "https://abeershaikh-book-chatbot.hf.space",
-  API_ENDPOINT: "/agent/chat",
+  // API_BASE_URL: " http://127.0.0.1:8000",
+  API_ENDPOINT: "/agent/chat/",
   get API_URL() {
     return this.API_BASE_URL + this.API_ENDPOINT;
   },

@@ -2,7 +2,7 @@
 // Centralized configuration for the chatbot
 
 export const CHATBOT_CONFIG = {
-  API_BASE_URL: "http://localhost:8000",
+  API_BASE_URL: "https://abeershaikh-book-chatbot.hf.space",
   API_ENDPOINT: "/agent/chat",
   get API_URL() {
     return this.API_BASE_URL + this.API_ENDPOINT;

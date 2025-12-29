@@ -10,7 +10,7 @@
 
 // export const sendChatMessage = async (message: string): Promise<ChatAPIResponse> => {
 //   try {
-//     const response = await fetch(`${API_BASE_URL}/agent/chat`, {  
+//     const response = await fetch(`${API_BASE_URL}/agent/chat`, {
 //       method: 'POST',
 //       headers: {
 //         'Content-Type': 'application/json',
@@ -51,12 +51,14 @@
 // src/components/chatbot/api.ts
 // src/components/chatbot/api.ts
 
-import { ChatAPIResponse } from './types';
-import CHATBOT_CONFIG from './config';
+import { ChatAPIResponse } from "./types";
+import CHATBOT_CONFIG from "./config";
 
 console.log("📡 Calling API:", CHATBOT_CONFIG.API_URL);
 
-export const sendChatMessage = async (message: string): Promise<ChatAPIResponse> => {
+export const sendChatMessage = async (
+  message: string,
+): Promise<ChatAPIResponse> => {
   try {
     const response = await fetch(CHATBOT_CONFIG.API_URL, {
       method: "POST",
@@ -74,21 +76,34 @@ export const sendChatMessage = async (message: string): Promise<ChatAPIResponse>
     const data = await response.json();
     console.log("✔️ API DATA:", data);
     return data;
-
   } catch (error: any) {
     console.log("🔥 FRONTEND FETCH ERROR:", error.message);
 
     // Provide fallback responses based on message content when backend is not available
-    let fallbackResponse = "I'm currently unable to connect to the backend server. ";
+    let fallbackResponse =
+      "I'm currently unable to connect to the backend server. ";
 
-    if (message.toLowerCase().includes('ros2') || message.toLowerCase().includes('what is ros2')) {
-      fallbackResponse += "ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It provides a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robot platforms. It's designed for research, education, and industry applications.";
-    } else if (message.toLowerCase().includes('humanoid') || message.toLowerCase().includes('robot')) {
-      fallbackResponse += "A humanoid robot is a robot with a human-like body structure, typically featuring a head, torso, two arms, and two legs. These robots are designed to mimic human appearance and behavior, making them suitable for human-centered environments.";
-    } else if (message.toLowerCase().includes('chat') || message.toLowerCase().includes('help')) {
-      fallbackResponse += "I'm your Humanoid Assistant! I can help answer questions about robotics, AI, and the textbook content. The backend server is currently not available, but I can provide basic information about robotics topics.";
+    if (
+      message.toLowerCase().includes("ros2") ||
+      message.toLowerCase().includes("what is ros2")
+    ) {
+      fallbackResponse +=
+        "ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It provides a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robot platforms. It's designed for research, education, and industry applications.";
+    } else if (
+      message.toLowerCase().includes("humanoid") ||
+      message.toLowerCase().includes("robot")
+    ) {
+      fallbackResponse +=
+        "A humanoid robot is a robot with a human-like body structure, typically featuring a head, torso, two arms, and two legs. These robots are designed to mimic human appearance and behavior, making them suitable for human-centered environments.";
+    } else if (
+      message.toLowerCase().includes("chat") ||
+      message.toLowerCase().includes("help")
+    ) {
+      fallbackResponse +=
+        "I'm your Humanoid Assistant! I can help answer questions about robotics, AI, and the textbook content. The backend server is currently not available, but I can provide basic information about robotics topics.";
     } else {
-      fallbackResponse += "This is a Docusaurus-based documentation site for Physical AI & Humanoid Robotics. For specific questions about robotics, AI, or the textbook content, please check the documentation or contact the site administrator to ensure the backend is running.";
+      fallbackResponse +=
+        "This is a Docusaurus-based documentation site for Physical AI & Humanoid Robotics. For specific questions about robotics, AI, or the textbook content, please check the documentation or contact the site administrator to ensure the backend is running.";
     }
 
     return {
